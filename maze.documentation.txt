@@ -1,0 +1,85 @@
+                                                                                        THE MAZE GAME 
+                                                                   By Raveena Jain (raveena97) and Sreeya Sai(ssai123) 
+
+***************************************************************************************Instructions**********************************************************************************
+A 2-player game!
+Player 1: WEBCAT (arrow keys, red piece)
+Player 2: WEBDOG (wasd keys, yellow piece)
+
+Goal of Game:
+The goal of this game is for both players (who start at the green square) to reach the end of the Maze (the purple square). The larger the Maze, the harder the game will be! 
+
+Score:
+Both players’ scores are tracked at the bottom of the screen. The player with the lower score (got through the maze in fewer steps) is the winner. We recommend an immediate rematch if the scores are equal.   
+
+How to Play:
+- r key will reset to a new random maze (with the same dimensions)
+- up arrow key moves WEBCAT up 
+- down arrow key moves WEBCAT down 
+- left arrow key moves WEBCAT left 
+- right arrow key moves WEBCAT right 
+- w key moves WEBDOG up 
+- a key moves WEBDOG left 
+- s key moves WEBDOG down 
+- d key moves WEBDOG right
+- b key initiates Breath First Search 
+- v key initiates Depth First Search
+- o key toggles player 1’s path
+- p key toggles player 2’s path
+- h key creates new maze with a random horizontal bias 
+- g key creates new maze with a random vertical bias 
+
+********************************************************************************Brief Class Descriptions*****************************************************************************
+
+Vertex:
+- identified by unique post location
+- where individual walls (lines) and rectangles are drawn
+- boolean values let you know if a Vertex has a wall 
+- “friend” fields identify neighboring vertices
+- in order to compare vertices hasCode and .equals overridden 
+
+Edge: 
+- has two side Vertices and a weight 
+
+Weight Comparator:
+- compares two edge weights 
+
+Players:
+- each player has a vertex (where it is located), an image, and a number that keeps track of how many times it has been moved 
+- the two methods in this class deal with player movement 
+
+Deque, ANode, Sentinel, Node:
+- allows elements to be added, removed, etc. from future code 
+
+ICollection, Stack, Queue
+- allows us to check if “this” is empty, if it contains an element, and allows us to remove and add to “this”
+      - Stack adds and removes fro head
+      - Queue adds at tail and removes from head 
+
+MazeGame 
+- uses ArrayLists (including 2D), HashMaps, Stacks, and Queues
+- creates all possible vertices and edges
+- links neighboring vertices and vertices with their representatives 
+- uses Kruskal’s algorithm to create a spanning tree
+- uses Breath or Depth First Search to find the path from the start to the finish of the maze
+- resets maze
+- draws all elements of the maze (“the scene”) including all the black walls, players, and grey background
+- uses onTick as a way of recurring through in order to animate the search algorithms 
+
+***********************************************************************************Bells and Whistles********************************************************************************
+Whistles:
+- enhanced to allow two people to play
+      - add multiple player fields and methods for each player
+- score kept for both players 
+      - add counter field 
+- can restart even after both players have reached the endpoint
+      - instead of including WorldEnd, place end message in makeScene with conditions
+- show paths players have traveled
+      - added fields and methods for each player 
+
+Bells: 
+- horizontal bias 
+- vertical bias 
+     - change the weights of each edge to create bias 
+
+
